@@ -1,0 +1,374 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11.2%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11.2%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11.2%;
+
+  --primary: 262 83% 58%;
+  --primary-foreground: 210 20% 98%;
+
+  --secondary: 161 84% 39%;
+  --secondary-foreground: 210 20% 98%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 262 83% 96%;
+  --accent-foreground: 262 83% 58%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 262 83% 58%;
+
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11.2%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11.2%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11.2%;
+
+  --primary: 262 83% 58%;
+  --primary-foreground: 210 20% 98%;
+
+  --secondary: 161 84% 39%;
+  --secondary-foreground: 210 20% 98%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 262 83% 96%;
+  --accent-foreground: 262 83% 58%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 262 83% 58%;
+}
+
+/* Custom Light-Theme Global Overrides for Hardcoded Hex Classes */
+
+/* Base Background */
+.bg-\[\#050209\] {
+  background-color: #f8fafc !important;
+}
+
+/* Sidebar Background */
+.bg-\[\#090514\]\/85,
+.bg-\[\#090414\],
+.bg-\[\#090514\] {
+  background-color: #ffffff !important;
+  border-right: 1px solid rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Panel Backgrounds (re-map dark violet panels to crisp white panels with subtle shadows) */
+.bg-\[\#0a0515\]\/60,
+.bg-\[\#0b0616\],
+.bg-\[\#0c071b\],
+.bg-\[\#0c071b\]\/80,
+.bg-\[\#0d071b\]\/80,
+.bg-\[\#0e071b\],
+.bg-\[\#0e071e\],
+.bg-\[\#0a0515\]\/40 {
+  background-color: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Preserve terminal logs console dark background */
+.bg-\[\#050209\].font-mono {
+  background-color: #0d091a !important;
+  color: #a78bfa !important;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Warning/Alert blocks (e.g. ineligible alerts) */
+.bg-\[\#16060c\] {
+  background-color: #fef2f2 !important;
+  border-color: rgba(239, 68, 68, 0.2) !important;
+  color: #991b1b !important;
+}
+
+/* Specific KPI box backgrounds */
+.bg-slate-950\/50 {
+  background-color: rgba(99, 102, 241, 0.05) !important;
+}
+
+/* Overriding Dark Text Slates to Premium High-Contrast Slate/Indigo Tones */
+.text-slate-100 {
+  color: #0f172a !important; /* Near black */
+}
+.text-slate-200 {
+  color: #1e293b !important; /* Slate 800 */
+}
+.text-slate-300 {
+  color: #334155 !important; /* Slate 700 */
+}
+.text-slate-350 {
+  color: #334155 !important;
+}
+.text-slate-400 {
+  color: #475569 !important; /* Slate 600 */
+}
+.text-slate-450 {
+  color: #64748b !important; /* Slate 500 */
+}
+.text-slate-550 {
+  color: #475569 !important;
+}
+.text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Specific text-violet links/elements adjustments */
+.text-violet-300 {
+  color: #4f46e5 !important; /* Shift soft purple to readable dark indigo */
+}
+.text-violet-350 {
+  color: #6366f1 !important;
+}
+.text-violet-400 {
+  color: #7c3aed !important; /* Deep violet */
+}
+.text-violet-450 {
+  color: #7c3aed !important;
+}
+
+/* Dropdown menu items */
+.group-hover\:block {
+  background-color: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.12) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Standard HTML inputs, select boxes and textareas adjustments */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.12) !important;
+}
+
+/* Hover background lists & hover states inside widgets */
+.hover\:bg-violet-950\/20:hover {
+  background-color: rgba(99, 102, 241, 0.05) !important;
+}
+.hover\:bg-violet-950\/40:hover {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+}
+.hover\:text-slate-200:hover {
+  color: #4f46e5 !important;
+}
+
+/* Board columns in Recruiter pipeline */
+.bg-slate-900\/40 {
+  background-color: #f8fafc !important;
+  border: 1px solid rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Border adjustments */
+.border-violet-500\/10,
+.border-violet-500\/15,
+.border-violet-500\/20,
+.border-violet-500\/30,
+.border-violet-500\/35,
+.border-violet-500\/40,
+.border-violet-950\/20,
+.border-violet-950\/25,
+.border-violet-950\/30,
+.border-violet-950\/35,
+.border-violet-950\/40,
+.border-violet-900\/25 {
+  border-color: rgba(99, 102, 241, 0.08) !important;
+}
+
+.border-slate-800 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Premium Glassmorphic container styling for light mode */
+@utility glass {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.01) !important;
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Glow Border & Hover Effects */
+@utility glow-purple {
+  box-shadow: 0 4px 20px -5px rgba(139, 92, 246, 0.15);
+}
+
+@utility glow-emerald {
+  box-shadow: 0 4px 20px -5px rgba(16, 185, 129, 0.15);
+}
+
+@utility hover-glow {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.2) !important;
+    box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.12), 0 0 15px -5px rgba(139, 92, 246, 0.08) !important;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc !important;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.15) !important;
+  border-radius: 999px;
+  border: 2px solid #f8fafc !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Typography settings */
+body {
+  background-color: #f8fafc !important;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.03) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(16, 185, 129, 0.02) 0px, transparent 50%) !important;
+  background-attachment: fixed;
+  color: var(--color-foreground) !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.625 !important;
+  letter-spacing: -0.015em !important;
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  color: #0f172a !important;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+/* Specific overrides for placement readiness gauge and contrast text fixes */
+
+/* Radial Gauge circle container */
+.relative.h-32.w-32 {
+  background-color: #ffffff !important;
+  border-color: rgba(99, 102, 241, 0.12) !important;
+  box-shadow: 0 4px 20px -5px rgba(99, 102, 241, 0.1) !important;
+}
+
+.bg-\[\#0a0515\] {
+  background-color: #ffffff !important;
+}
+
+/* Radial Gauge percentage text styling (gradient to stand out on white circle) */
+.relative.h-32.w-32 span {
+  background: linear-gradient(to right, #4f46e5, #9333ea) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Global text-white overrides: remap standard white text elements to dark slate for light theme */
+.text-white {
+  color: #0f172a !important;
+}
+
+/* Preserve white text for badges, solid fills, active buttons, and custom gradients */
+button.text-white,
+button .text-white,
+a.text-white,
+a .text-white,
+.bg-gradient-to-r,
+.bg-gradient-to-tr,
+.bg-gradient-to-br,
+[class*="bg-gradient"] .text-white,
+[class*="bg-gradient"].text-white,
+[class*="bg-violet"] .text-white,
+[class*="bg-violet"].text-white,
+[class*="bg-emerald"] .text-white,
+[class*="bg-emerald"].text-white,
+[class*="bg-fuchsia"] .text-white,
+[class*="bg-fuchsia"].text-white,
+[class*="bg-red"] .text-white,
+[class*="bg-red"].text-white,
+[class*="bg-amber"] .text-white,
+[class*="bg-amber"].text-white,
+[class*="bg-indigo"] .text-white,
+[class*="bg-indigo"].text-white {
+  color: #ffffff !important;
+}

@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug React Client (Chrome)",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend/src",
+      "sourceMapPathOverrides": {
+        "webpack:///./~/*": "${webRoot}/node_modules/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///*": "*"
+      }
+    },
+    {
+      "type": "java",
+      "name": "Debug Spring Boot Backend",
+      "request": "launch",
+      "mainClass": "com.enterprise.placement.PlacementApplication",
+      "projectName": "placement",
+      "args": "--spring.profiles.active=dev",
+      "cwd": "${workspaceFolder}/backend"
+    }
+  ]
+}
