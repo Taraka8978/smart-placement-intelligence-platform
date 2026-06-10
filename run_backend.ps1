@@ -33,6 +33,10 @@ if (-not (Test-Path $mavenBin)) {
 }
 
 # 2. Run Spring Boot
+if (Test-Path "C:\Users\tarak\.jdk\jdk-21.0.10") {
+    $env:JAVA_HOME = "C:\Users\tarak\.jdk\jdk-21.0.10"
+    Write-Host "Configured JAVA_HOME to JDK 21: $env:JAVA_HOME" -ForegroundColor Cyan
+}
 Write-Host "Starting Spring Boot backend using profile: dev..." -ForegroundColor Green
 Set-Location -Path $backendDir
 & $mavenBin spring-boot:run "-Dspring-boot.run.profiles=dev"
